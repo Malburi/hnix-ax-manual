@@ -111,4 +111,4 @@
 - [온톨로지 — 업무 객체 보기](/user/datalake/ontology.md)
 - [AX-DataLake 관리 개요](/admin/datalake/README.md)
 - [거버넌스 — 권한 · 가림 · 행 제한](/admin/datalake/governance.md)
-- [에이전트 · 트리거 관리](/admin/platform/agents.md)
+- [에이전트 · 자동 실행 관리](/admin/platform/agents.md)

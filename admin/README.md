@@ -25,7 +25,7 @@
 | 4 | 모델 정하기(사내 CPU·GPU 서버·외부 API) | [LLM 게이트웨이 설정](/admin/platform/gateway.md) |
 | 5 | 도구 정책·승인 규칙 | [MCP 허브 · 정책 · 승인](/admin/platform/hub.md) |
 | 6 | 개발자 PC 에 IDE 배포, 사용 허가 | [개인 PC 배포](/admin/install-pc.md) · [AX-NAVI 사용 허가](/admin/platform/axnavi.md) |
-| 7 | 문서 컬렉션·현업 창구·에이전트 준비 | [문서 컬렉션](/admin/platform/docs.md) · [현업 창구](/admin/platform/desk.md) · [에이전트](/admin/platform/agents.md) |
+| 7 | 문서함·현업 창구·에이전트 준비 | [문서함](/admin/platform/docs.md) · [현업 창구](/admin/platform/desk.md) · [에이전트](/admin/platform/agents.md) |
 | 8 | 고객 ITSM·모니터링·업무 시스템 연동 | [연동](/admin/platform/integrations.md) |
 | 9 | PMS-X 프로젝트·기준 정보 | [PMS-X 관리 개요](/admin/pmsx/README.md) |
 | 10 | AX-DataLake 수집·거버넌스 | [AX-DataLake 관리 개요](/admin/datalake/README.md) |

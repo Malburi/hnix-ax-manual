@@ -10,7 +10,7 @@
 - **사용자 — AX Platform**
   - [대시보드와 승인함](/user/platform/dashboard.md)
   - [워크스페이스 채팅](/user/platform/chat.md)
-  - [문서 RAG — 매뉴얼 찾기·올리기](/user/platform/docs.md)
+  - [문서 검색 — 매뉴얼 찾기·올리기](/user/platform/docs.md)
   - [업무 흐름 개선](/user/platform/process.md)
   - [내 연결 설정과 AX-NAVI 기기](/user/platform/setup.md)
   - [LLM 게이트웨이 — 내 키와 모델](/user/platform/gateway.md)
@@ -56,9 +56,9 @@
 - **관리자 — AX Platform**
   - [LLM 게이트웨이 설정](/admin/platform/gateway.md)
   - [MCP 허브 · 정책 · 승인](/admin/platform/hub.md)
-  - [에이전트 · 트리거 관리](/admin/platform/agents.md)
+  - [에이전트 · 자동 실행 관리](/admin/platform/agents.md)
   - [자동화 흐름 · 런북 등록](/admin/platform/automation.md)
-  - [문서 컬렉션 관리](/admin/platform/docs.md)
+  - [문서함 관리](/admin/platform/docs.md)
   - [현업 창구 만들기와 매뉴얼 보강](/admin/platform/desk.md)
   - [고객 ITSM · 업무 시스템 · 알림 연동](/admin/platform/integrations.md)
   - [AI 사용 현황 · 생산성 보고서 · 모델 평가](/admin/platform/observe.md)

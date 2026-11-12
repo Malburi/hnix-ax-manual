@@ -18,7 +18,7 @@
 | 하고 싶은 일 | 쪽 |
 |---|---|
 | AI 에게 업무 질문하기(매뉴얼·서비스 요청 근거로) | [워크스페이스 채팅](/user/platform/chat.md) |
-| 매뉴얼·규정 문서 찾기, 올리기 | [문서 RAG](/user/platform/docs.md) |
+| 매뉴얼·규정 문서 찾기, 올리기 | [문서 검색](/user/platform/docs.md) |
 | 내가 요청한 승인이 어떻게 됐는지 보기 / 승인하기 | [대시보드와 승인함](/user/platform/dashboard.md) |
 | 정해 둔 AI 에이전트에게 일 맡기기 | [에이전트 실행과 내 에이전트](/user/platform/agents.md) |
 | 배치 재실행 같은 조치를 요청하기 | [런북 실행 요청](/user/platform/runbooks.md) |

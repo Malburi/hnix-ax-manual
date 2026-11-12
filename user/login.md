@@ -6,7 +6,7 @@
 
 제품마다 계정이 따로 있습니다. 관리자가 알려 준 주소를 브라우저(Edge·Chrome 최신판)로 열고 아이디·비밀번호를 넣은 뒤 **로그인**을 누르세요.
 
-<figure><img src="img/common/login-platform.png" alt="AX Platform 로그인 화면 — 오른쪽에 로그인 ID·비밀번호 칸과 로그인 버튼"><figcaption>AX Platform 로그인 화면. PMS-X·AX-DataLake 도 아이디·비밀번호를 넣는 같은 방식입니다.</figcaption></figure>
+<figure><img src="img/common/login-platform.png" alt="AX Platform 로그인 화면 — 왼쪽 제품 소개(LLM 게이트웨이·MCP 허브·사용량·비용·현업 창구), 오른쪽에 로그인 ID·비밀번호 칸과 로그인 버튼"><figcaption>AX Platform 로그인 화면. PMS-X·AX-DataLake 도 아이디·비밀번호를 넣는 같은 방식입니다.</figcaption></figure>
 
 | 제품 | 로그인 칸 | 사내 계정(AD·SSO) |
 |---|---|---|
@@ -35,11 +35,11 @@
 | PMS-X | 오른쪽 위 내 이름 › **비밀번호 변경** |
 | AX-DataLake | 오른쪽 위 **비밀번호 바꾸기** |
 
-<figure><img src="img/common/platform-password.png" alt="AX Platform 비밀번호 바꾸기 창 — 현재 비밀번호·새 비밀번호 칸"><figcaption>AX Platform 의 비밀번호 바꾸기 창.</figcaption></figure>
+<figure><img src="img/common/platform-password.png" alt="AX Platform 비밀번호 바꾸기 창 — 지금 비밀번호·새 비밀번호·새 비밀번호 확인 칸, 닫기·바꾸기 버튼"><figcaption>AX Platform 의 비밀번호 바꾸기 창.</figcaption></figure>
 
-1. 현재 비밀번호를 넣습니다.
+1. **지금 비밀번호**를 넣습니다.
 2. 새 비밀번호를 두 번 넣습니다. AX Platform 은 **8자 이상, 영문·숫자·특수문자 중 2종 이상**이어야 합니다.
-3. 저장하면 끝입니다.
+3. **바꾸기**를 누르면 끝입니다.
 
 > **참고** 사내 AD·SSO 로 로그인하는 계정은 이 화면에서 바꾸지 않습니다. 회사 계정 비밀번호를 바꾸는 방법을 따르세요.
 
