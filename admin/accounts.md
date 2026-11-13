@@ -140,7 +140,50 @@ pmsx:
 - 라이선스 사용자 수가 다 찼으면 계정을 만들지 않고 로그인을 거절합니다. 감사 로그에 생성·거절·역할 올림이 남습니다.
 - 기본값이 꺼짐인 까닭: 업그레이드만으로 디렉터리 전원이 들어오거나 라이선스 사용자 수를 넘기지 않게 하려는 것입니다. 켤 때는 `allowed-groups` 를 함께 정하세요.
 
-> **AX-DataLake** 는 로컬 계정만 씁니다.
+## 사내 계정으로 로그인 (AX-DataLake)
+
+AX-DataLake 는 0.6.0 부터 사내 **AD(LDAP)** 와 **SSO(OpenID Connect)** 를 **선택해서** 붙일 수 있습니다. 기본은 꺼짐이고, 켜도 레이크에서 직접 만든 계정(아이디·비밀번호)은 그대로 쓸 수 있습니다 — AD 가 멈췄을 때 관리자가 들어올 길입니다.
+
+설정은 레이크 설정 폴더(서버판: `C:\HNIX-AX\apps\datalake\ax-datalake-*\config\`)의 **`ax-datalake.local.yaml`** 에 적습니다. 파일이 없으면 새로 만듭니다. 서버판 설치는 `ax-datalake.yaml` 을 다시 쓰지만 `ax-datalake.local.yaml` 은 그대로 두고, 그 값이 먼저 적용됩니다.
+
+```yaml
+auth:
+  ldap:                                   # AD — 로그인 화면의 아이디·비밀번호 칸으로
+    enabled: true
+    url: ldaps://dc.corp.local:636
+    baseDn: DC=corp,DC=local
+    userFilter: "(sAMAccountName={0})"
+    bindDn: CN=svc-axdl,OU=Service,DC=corp,DC=local
+    bindPassword: ${env:AXDL_LDAP_BIND_PASSWORD}
+    orgAttr: company                      # 이 속성 값이 소속(행 제한의 :org)이 된다 — 비우면 소속을 건드리지 않음
+  oidc:                                   # SSO — 로그인 화면에 버튼이 생긴다
+    enabled: false
+    issuer: https://login.corp.local/realms/corp
+    clientId: ax-datalake
+    clientSecret: ${env:AXDL_OIDC_CLIENT_SECRET}
+    groupsClaim: groups
+    orgClaim: null
+    buttonLabel: 사내 계정으로 로그인
+  directory:                              # AD·SSO 공통
+    autoCreate: false                     # 처음 로그인하는 사람의 계정을 만들지(기본 꺼짐)
+    allowedGroups: [CN=AXDL-Users,OU=Groups,DC=corp,DC=local]   # 이 그룹 사람만(비우면 누구나)
+    roleGroups:                           # 그룹 → 레이크 역할(여럿이면 높은 쪽)
+      ADMIN: [CN=AX-Admins,OU=Groups,DC=corp,DC=local]
+      ENGINEER: [CN=Data-Engineers,OU=Groups,DC=corp,DC=local]
+      ANALYST: []
+    defaultRole: ANALYST                  # 어느 그룹에도 안 맞을 때
+```
+
+- SSO 쪽(IdP)에는 레이크를 클라이언트로 등록하고, 돌아올 주소 `<레이크 주소>/api/v1/auth/oidc/callback` 을 넣습니다. SSO 를 쓰려면 레이크 설정 `server.publicUrl` 이 있어야 합니다(서버판은 설치가 넣습니다).
+- **`autoCreate` 가 꺼져 있으면** 미리 등록한 사람만 들어옵니다. 관리 › 사용자 › 새 사용자에서 계정 종류를 **사내 계정**(비밀번호 없음)으로 고르세요. 등록되지 않은 사람에게는 '관리자에게 계정을 요청하세요'가 뜹니다.
+- **로그인할 때마다** 이름·이메일을 디렉터리 값으로 맞춥니다. `orgAttr`·`orgClaim` 을 정했으면 소속도, `roleGroups` 를 하나라도 적었으면 역할도 맞춥니다 — 그룹에서 빠지면 역할이 내려갑니다(플랫폼·PMS-X 는 올리기만 하는 것과 다릅니다). 디렉터리가 정하는 칸은 사용자 화면에서 잠겨 있습니다.
+- 소속 값이 없으면 소속 행 제한이 걸린 테이블은 **아무 행도 보이지 않습니다**(안전한 쪽).
+- 같은 아이디의 **직접 만든 레이크 계정**이 있으면 사내 계정으로 이어 쓰지 않고 거절합니다.
+- 사내 계정에는 레이크 비밀번호가 없어 '비밀번호 바꾸기'가 없습니다. 디렉터리가 응답하지 않으면 잠시 로그인이 안 되지만 실패 횟수에는 넣지 않습니다.
+- **퇴사자**: AD 에서 지워도 레이크 계정과 그 사람의 API 키는 저절로 멈추지 않습니다. 관리 › 사용자에서 **정지**하세요(키도 함께 막힙니다).
+- 감사 로그에 로그인 방법(local·ldap·oidc), 첫 로그인 계정 생성, 거절 사유가 남습니다.
+
+반영: 비밀번호 환경 변수를 서버의 시스템 환경 변수로 넣고 레이크 서비스를 다시 시작합니다(`server.ps1 stop` → `server.ps1 start`).
 
 ## 잠김·비밀번호 분실
 
@@ -148,7 +191,7 @@ pmsx:
 |---|---|---|
 | AX Platform | 5번 틀리면 15분 잠김(저절로 풀림) | 관리자가 사용자 화면에서 새 비밀번호를 정해 줍니다 |
 | PMS-X | 5번 틀리면 잠김 — 관리자가 사용자 관리에서 잠금 해제 | 관리자가 비밀번호 초기화 |
-| AX-DataLake | — | 관리자가 사용자 화면에서 새 비밀번호 |
+| AX-DataLake | 5번 틀리면 15분 잠김(저절로 풀림) | 관리자가 사용자 화면에서 새 비밀번호(사내 계정은 AD·SSO 쪽에서) |
 
 ## 퇴사·이동 때 정리
 
