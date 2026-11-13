@@ -114,7 +114,33 @@ SSO 쪽(IdP)에는 이 플랫폼을 클라이언트로 등록하고 돌아올 �
 3. 로그인 화면에서 사내 계정으로 로그인해 봅니다. SSO 를 켰으면 **사내 SSO 로그인** 버튼이 보입니다.
 4. 관리자 그룹 사람이 **시스템 관리자**로 들어오는지 사용자 목록에서 확인합니다.
 
-> **PMS-X** 는 AD 비밀번호로 로그인하게 할 수 있지만 계정은 먼저 등록해 둬야 합니다(일괄 등록 명단에 넣으세요). **AX-DataLake** 는 로컬 계정만 씁니다.
+## 사내 계정으로 로그인 (PMS-X)
+
+PMS-X 는 사내 **AD(LDAP)** 비밀번호로 로그인합니다(SSO 는 아직 없습니다). 기본은 **미리 등록한 사람만** 로그인할 수 있고, `auto-create` 를 켜면 처음 로그인하는 사람의 계정이 저절로 만들어집니다. 설정은 PMS-X 설정 파일(`config/application-prod.yml`)이나 같은 이름의 환경 변수(`PMSX_LDAP_*`)에 넣습니다.
+
+```yaml
+pmsx:
+  auth:
+    ldap:
+      enabled: true
+      url: ldaps://ad.corp.local
+      base-dn: DC=corp,DC=local
+      user-search-filter: (sAMAccountName={0})
+      bind-dn: CN=svc-pmsx,OU=Service,DC=corp,DC=local
+      bind-password: ${PMSX_LDAP_BIND_PASSWORD}
+      auto-create: true                    # 첫 로그인 때 계정 만들기(기본 false)
+      auto-create-org-type: INTERNAL       # 새 계정의 소속 — 사내 AD 면 INTERNAL, 고객사 AD 면 CUSTOMER(기본)
+      allowed-groups: CN=PMSX-Users,OU=Groups,DC=corp,DC=local      # 이 그룹 사람만(비우면 모두). 여럿이면 ; 로 나눔
+      admin-groups: CN=AX-Admins,OU=Groups,DC=corp,DC=local         # 시스템 관리자로 올릴 그룹
+```
+
+- 자동으로 만든 계정은 **시스템 역할도 프로젝트도 없습니다.** 관리 › 사용자에서 아이디 옆 **'첫 로그인 때 생김'** 표시를 보고 프로젝트 멤버로 넣어 주세요.
+- 그룹 DN 에는 쉼표가 들어가므로 여러 그룹은 **`;`** 로 나눕니다.
+- 관리자 그룹 구성원은 시스템 관리자로 올리기만 하고, 그룹에서 빠져도 내리지 않습니다(플랫폼과 같은 규칙).
+- 라이선스 사용자 수가 다 찼으면 계정을 만들지 않고 로그인을 거절합니다. 감사 로그에 생성·거절·역할 올림이 남습니다.
+- 기본값이 꺼짐인 까닭: 업그레이드만으로 디렉터리 전원이 들어오거나 라이선스 사용자 수를 넘기지 않게 하려는 것입니다. 켤 때는 `allowed-groups` 를 함께 정하세요.
+
+> **AX-DataLake** 는 로컬 계정만 씁니다.
 
 ## 잠김·비밀번호 분실
 
