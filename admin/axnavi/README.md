@@ -56,7 +56,7 @@ AX-NAVI IDE 설치본은 플랫폼에 로그인해 승인받은 기기에서만 
 ```yaml
 axnavi:
   seats: listed          # listed = 화면에서 허가한 사람만 · all = 활성 사용자 모두
-  maxDevices: 2          # 1인 기기 수
+  maxDevices: 3          # 1인 기기 수(IDE·CLI 합쳐서)
   licenseMinutes: 60     # 사용권 토큰 수명(분)
   offlineDays: 3         # 플랫폼에 닿지 않을 때 버티는 날수
   connection: null       # 엔진·스킬 원본으로 쓸 MCP 허브 AX-NAVI 연결 이름(비우면 첫 번째)

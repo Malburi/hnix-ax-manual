@@ -24,7 +24,7 @@ sequenceDiagram
 |---|---|
 | 서버 설치가 끝났는지 | [서버 설치](/admin/install-server.md) — 서버 설치가 개인 PC 설치 파일을 플랫폼 내려받기 폴더에 넣어 둡니다 |
 | IDE 를 쓸 사람에게 **사용 허가** | 플랫폼 **AX-NAVI 관리 › 사용 허가** → [AX-NAVI 사용 허가 · 조직 설정](/admin/platform/axnavi.md) |
-| 1인 기기 수·허가 방식 확인 | 플랫폼 설정 `axnavi.seats`(`listed` = 허가한 사람만, `all` = 모든 활성 사용자), `axnavi.maxDevices`(기본 2) |
+| 1인 기기 수·허가 방식 확인 | 플랫폼 설정 `axnavi.seats`(`listed` = 허가한 사람만, `all` = 모든 활성 사용자), `axnavi.maxDevices`(기본 3 — IDE·CLI 합쳐서) |
 | (선택) 조직 규칙·스킬 묶음 | **AX-NAVI 관리 › 조직 설정** → [조직 설정 배포](/admin/axnavi/profiles.md) |
 | (선택) 보안 프로그램 예외 | 아래 4번 |
 
