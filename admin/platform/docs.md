@@ -100,6 +100,8 @@
 
 AX-DataLake 가 있는 현장은 레이크의 문서 묶음을 문서 검색·채팅·현업 창구에서 함께 찾게 할 수 있습니다.
 
+> **참고** HNIX AX 서버판으로 설치했으면 설치가 이미 연결해 두었습니다. 레이크 분석가(`ana01`) 키로 연결되며, `server.config.json` 의 `datalake.platformDocs` 를 `false` 로 두고 `server.ps1 install` 을 다시 돌리면 끕니다. 다른 사용자의 키를 쓰려면 아래처럼 `hnix-ax.local.yaml` 에 적습니다. 이쪽이 이깁니다.
+
 1. AX-DataLake 에 **분석가 역할** 사용자로 로그인해 **내 API 키**(query 범위)를 만듭니다.
 2. 그 키를 플랫폼 서버의 시스템 환경 변수 `HNIX_AX_LAKE_KEY` 로 넣습니다.
 3. `hnix-ax.local.yaml` 에 다음을 적고 플랫폼 서비스를 다시 시작합니다.
