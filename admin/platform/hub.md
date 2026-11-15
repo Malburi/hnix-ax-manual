@@ -110,7 +110,7 @@ MCP 허브는 위쪽 탭으로 오갑니다(주소 `?tab=servers` 처럼 바로 
 
 - 에이전트·채팅의 도구 호출 중 **사람 승인 필요** 정책에 걸린 것
 - 런북 **실행 요청**(`runbook__…`) — [런북](/admin/platform/automation.md#런북)
-- 자동화 흐름의 **사람 확인** 단계(`flows__confirm`)
+- 업무 자동화의 **사람 확인** 단계(`flows__confirm`)
 
 <figure><img src="img/platform/a-approvals-review.png" alt="승인함 — 대기 목록(요청·요청자·도구·입력 항목·요청 경로·상태·처리 기한) 위에 도구 호출 승인 창이 열려 있음. 요청자·도구(서비스 요청 상세)·정책 사유·입력값(서비스 요청 ID)·원문 보기(JSON)·결정 사유 칸·반려·승인 버튼"><figcaption>승인함에서 검토를 눌러 연 도구 호출 승인 창</figcaption></figure>
 
@@ -124,7 +124,7 @@ MCP 허브는 위쪽 탭으로 오갑니다(주소 `?tab=servers` 처럼 바로 
 | 결과 | 그 뒤 |
 |---|---|
 | 도구 호출 승인 | 요청자가 **같은 입력값으로 다시 부르면 한 번** 실행됩니다. 자동 실행으로 깨운 에이전트 실행은 자동으로 이어지고, 화면에서 실행한 에이전트는 실행한 사람이 **이어서 실행**을 누릅니다 |
-| 흐름 사람 확인 승인 | 자동화 흐름이 이어서 진행합니다. 반려하면 흐름의 '거부' 갈래로 갑니다 |
+| 흐름 사람 확인 승인 | 업무 자동화가 이어서 진행합니다. 반려하면 흐름의 '거부' 갈래로 갑니다 |
 | 반려 | 실행되지 않습니다 |
 
 ### 여러 건 한꺼번에
@@ -170,5 +170,5 @@ MCP 허브는 위쪽 탭으로 오갑니다(주소 `?tab=servers` 처럼 바로 
 
 - [대시보드와 승인함](/user/platform/dashboard.md)
 - [MCP 허브 — 내 도구 쓰기](/user/platform/hub.md)
-- [자동화 흐름 · 런북 등록](/admin/platform/automation.md)
+- [업무 자동화 · 런북 등록](/admin/platform/automation.md)
 - [고객 ITSM · 업무 시스템 · 알림 연동](/admin/platform/integrations.md)

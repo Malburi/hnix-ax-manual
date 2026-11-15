@@ -57,7 +57,7 @@
 
 ## 업무 시스템 연결
 
-사내 업무 시스템을 에이전트와 자동화 흐름이 쓰는 **MCP 허브 도구**로 잇습니다. 연결 이름이 도구 이름 앞에 붙습니다(예: `sap_hr__query`).
+사내 업무 시스템을 에이전트와 업무 자동화가 쓰는 **MCP 허브 도구**로 잇습니다. 연결 이름이 도구 이름 앞에 붙습니다(예: `sap_hr__query`).
 
 <figure><img src="img/platform/a-biz.png" alt="업무 시스템 연결 화면 — 아직 연결이 없는 상태. 처음 연결하기 4단계 안내와 SAP (OData)·Salesforce·Microsoft 365·네이버웍스·일반 REST (OpenAPI) 다섯 가지 종류 상자"><figcaption>업무 시스템 연결 — 연결이 없을 때의 처음 화면</figcaption></figure>
 

@@ -56,9 +56,9 @@
 런북이 꺼져 있거나 서버에서 런북 실행이 꺼진 경우입니다. 상태 칸의 **꺼짐 · 명령 꺼짐**을 확인하고 관리자에게 알리세요.
 
 **Q. 런북을 새로 만들고 싶습니다.**
-등록은 관리자가 합니다. [자동화 흐름 · 런북 등록](/admin/platform/automation.md)을 보세요.
+등록은 관리자가 합니다. [업무 자동화 · 런북 등록](/admin/platform/automation.md)을 보세요.
 
 ## 관련 쪽
 - [대시보드와 승인함](/user/platform/dashboard.md)
 - [에이전트 실행과 내 에이전트](/user/platform/agents.md)
-- 관리자: [자동화 흐름 · 런북 등록](/admin/platform/automation.md)
+- 관리자: [업무 자동화 · 런북 등록](/admin/platform/automation.md)
