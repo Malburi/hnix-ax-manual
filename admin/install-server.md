@@ -15,7 +15,7 @@
 
 | 서버 꾸러미 안 | 내용 |
 |---|---|
-| 제품 셋 | AX Platform 0.9.0(Node 포함), AX-DataLake 0.3.1(Node·SQL 엔진 포함), PMS-X 1.3.7(Java 21 포함, 시연 데이터) |
+| 제품 셋 | AX Platform(Node 포함), AX-DataLake(Node·SQL 엔진 포함), PMS-X(Java 21 포함, 시연 데이터) — 들어 있는 판은 꾸러미 `packages\` 의 파일 이름에 적혀 있습니다 |
 | DB | PostgreSQL 18 — 세 제품 DB 를 한곳에, 매일 백업 |
 | 사내 모델 | Ollama CPU 판 — 문서 검색용 임베딩과 대화 모델 |
 | AX-NAVI CLI · 연습 저장소 | 허브의 AX-NAVI 도구와 자동 점검용 |
