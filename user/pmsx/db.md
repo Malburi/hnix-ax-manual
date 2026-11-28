@@ -67,6 +67,8 @@
 | **점검** | 복잡도 지표, 업무 규칙 후보, 동적 SQL · 오류 삼킴 · 루틴 안 트랜잭션처럼 확인이 필요한 곳 |
 | **소스·참조** | 원본 소스와 참조 관계 |
 
+로직 분석은 Oracle·Tibero(PL/SQL), PostgreSQL(PL/pgSQL 일부), SQL Server(T-SQL, 1.3.29부터)의 원문을 읽습니다. SQL Server 는 `TRY … CATCH` 가 '오류: 모든 오류(CATCH)' 갈래로 보이고, 점검에서 비어 있거나 오류를 다시 던지지 않는 `CATCH`, 부른 쪽 트랜잭션까지 되돌리는 `ROLLBACK` 을 알려 줍니다.
+
 > **참고** "수집된 DB 오브젝트가 없습니다."가 보이면 수집기에 DDL 파일이나 DB 읽기 전용 접속을 넣고 다시 수집해야 합니다([As-Is 수집기 운영](/admin/pmsx/collector.md)).
 
 ## ERD
